@@ -23,6 +23,9 @@ class GameViewModel : ViewModel() {
         Log.d("GameFragment", "GameViewModel destroyed!")
     }
 
+    /*
+     * Updates currentWord and currentScrambledWord with the next word.
+     */
     private fun getNextWord() {
         currentWord = allWordsList.random()
         val tempWord = currentWord.toCharArray()
@@ -30,6 +33,14 @@ class GameViewModel : ViewModel() {
         // シャッフルしても元の単語と同じなら繰り返す
         while (tempWord.toString().equals(currentWord, false)) {
             tempWord.shuffle()
+        }
+        // ゲーム中に出てきた単語だったら選び直す
+        if (wordsList.contains(currentWord)) {
+            getNextWord()
+        } else {
+            _currentScrambledWord = String(tempWord)
+            ++currentWordCount
+            wordsList.add(currentWord)
         }
     }
 }
