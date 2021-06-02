@@ -16,6 +16,7 @@ class GameViewModel : ViewModel() {
 
     init {
         Log.d("GameFragment", "GameViewModel created!")
+        getNextWord()
     }
 
     override fun onCleared() {
