@@ -10,7 +10,7 @@ class GameViewModel : ViewModel() {
     private var wordsList: MutableList<String> = mutableListOf()
     private lateinit var currentWord: String
 
-    private var _currentScrambledWord = "test"
+    private lateinit var _currentScrambledWord: String
     val currentScrambledWord: String
         get() = _currentScrambledWord
 
