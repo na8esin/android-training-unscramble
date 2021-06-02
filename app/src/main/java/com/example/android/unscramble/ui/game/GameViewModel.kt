@@ -30,6 +30,7 @@ class GameViewModel : ViewModel() {
     private fun getNextWord() {
         currentWord = allWordsList.random()
         val tempWord = currentWord.toCharArray()
+        tempWord.shuffle()
 
         // シャッフルしても元の単語と同じなら繰り返す
         while (tempWord.toString().equals(currentWord, false)) {
