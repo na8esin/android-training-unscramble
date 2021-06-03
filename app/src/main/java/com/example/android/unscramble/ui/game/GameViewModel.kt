@@ -37,7 +37,12 @@ class GameViewModel : ViewModel() {
         val tempWord = currentWord.toCharArray()
         tempWord.shuffle()
 
-        // シャッフルしても元の単語と同じなら繰り返す
+        // シャッフルしても元の単語と同じなら繰り返す。
+        // codelabではここのコードに誤りがあった。
+        // shuffleのような現実にはあまり出くわさない処理の周りのバグは
+        // やっぱり気づきにくいんだろうな。
+        // ただ、whileの中の処理は一回は通すようにテストするというのは
+        // 当たり前だから、実際の業務では大丈夫なのかもしれない。
         while (String(tempWord).equals(currentWord, false)) {
             tempWord.shuffle()
         }
