@@ -38,7 +38,7 @@ class GameViewModel : ViewModel() {
         tempWord.shuffle()
 
         // シャッフルしても元の単語と同じなら繰り返す
-        while (tempWord.toString().equals(currentWord, false)) {
+        while (String(tempWord).equals(currentWord, false)) {
             tempWord.shuffle()
         }
         // ゲーム中に出てきた単語だったら選び直す
