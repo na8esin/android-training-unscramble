@@ -10,6 +10,8 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
+    // LiveDataはライフサイクルに応じた監視が可能
+    // https://developer.android.com/topic/libraries/architecture/livedata?hl=ja
     private val _score = MutableLiveData(0)
     val score: LiveData<Int>
         get() = _score
