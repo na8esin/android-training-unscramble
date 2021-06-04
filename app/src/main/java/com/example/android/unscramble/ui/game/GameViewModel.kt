@@ -43,6 +43,11 @@ class GameViewModel : ViewModel() {
         getNextWord()
     }
 
+    /**
+     * ViewModelは、関連付けられたフラグメントの接続が解除されたとき、またはアクティビティが終了したときに破棄されます。
+     * https://developer.android.com/codelabs/basic-android-kotlin-training-viewmodel?hl=ja&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fandroid-basics-kotlin-unit-3-pathway-3%3Fhl%3Dja%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fbasic-android-kotlin-training-viewmodel#5
+     * 画面が回転しただけだと廃棄されない。
+     */
     override fun onCleared() {
         super.onCleared()
         Log.d("GameFragment", "GameViewModel destroyed!")
